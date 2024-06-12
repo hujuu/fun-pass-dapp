@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { Xumm } from 'xumm';
 import { Client, AccountNFTsRequest, convertStringToHex } from 'xrpl';
 import Header from "@/app/components/Header";
+import ItemList from "@/app/components/ItemList";
+import HeroImage from "@/app/components/HeroImage";
 
 const apiKey = process.env.NEXT_PUBLIC_XUMM_API_KEY;
 
@@ -75,14 +77,14 @@ export default function Home() {
 
   return (
       <main>
+        <Header account={account} onConnect={connect} />
+        <HeroImage account={account} onConnect={connect} />
         {account && (
-            <>
-              <Header account={account} />
-              <div className={'pt-32'}>{account}</div>
-              <button onClick={disconnect}>Disconnect</button>
-              <button onClick={createTransaction}>Payment</button>
+            <div className="max-w-3xl mx-auto">
+              <button className="btn" onClick={disconnect}>Disconnect</button>
+              <button className="btn" onClick={createTransaction}>Payment</button>
               <button className="btn btn-primary" onClick={mintNFT}>Mint NFT</button>
-              <button onClick={fetchNFTs}>Fetch NFTs</button>
+              <button className="btn" onClick={fetchNFTs}>Fetch NFTs</button>
               {nfts.length > 0 && (
                   <div>
                     <h3>My NFTs</h3>
@@ -93,9 +95,10 @@ export default function Home() {
                     </ul>
                   </div>
               )}
-            </>
+            </div>
         )}
         {!account && <button onClick={connect}>Connect</button>}
+        <ItemList />
       </main>
   );
 }
