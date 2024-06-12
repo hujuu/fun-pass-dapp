@@ -5,17 +5,12 @@ type HeaderProps = {
 
 export default function Header({ account, onConnect } : HeaderProps) {
     return (
-        <div className="navbar bg-base-100 border-b border-gray-200">
+        <div className="navbar bg-amber-50 border-b border-gray-200">
             <div className="flex-1">
                 <a className="btn btn-ghost text-xl">Fun Pass</a>
             </div>
             {!account && (
                 <div className="flex-none">
-                    <div className="hidden dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-
-                        </div>
-                    </div>
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className={"flex"}>
                             <div
