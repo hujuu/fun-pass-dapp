@@ -55,6 +55,7 @@ export default function Home() {
 
     if (!payload?.pushed) {
       console.log(payload?.refs.qr_png);
+      payload?.refs.qr_png && alert('QRコードを表示しました');
     }
   };
 
@@ -77,12 +78,10 @@ export default function Home() {
 
   return (
       <main>
-        <Header account={account} onConnect={connect} />
+        <Header account={account} onConnect={connect} disConnect={disconnect}/>
         <HeroImage account={account} onConnect={connect} />
         {account && (
             <div className="max-w-3xl mx-auto">
-              <button className="btn" onClick={disconnect}>Disconnect</button>
-              <button className="btn" onClick={createTransaction}>Payment</button>
               <button className="btn btn-primary" onClick={mintNFT}>Mint NFT</button>
               <button className="btn" onClick={fetchNFTs}>Fetch NFTs</button>
               {nfts.length > 0 && (
@@ -97,7 +96,6 @@ export default function Home() {
               )}
             </div>
         )}
-        {!account && <button onClick={connect}>Connect</button>}
         <ItemList />
       </main>
   );

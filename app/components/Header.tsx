@@ -1,9 +1,10 @@
 type HeaderProps = {
     account: string | undefined;
     onConnect: () => void;
+    disConnect: () => void;
 };
 
-export default function Header({ account, onConnect } : HeaderProps) {
+export default function Header({ account, onConnect, disConnect } : HeaderProps) {
     return (
         <div className="navbar bg-amber-50 border-b border-gray-200">
             <div className="flex-1">
@@ -65,8 +66,7 @@ export default function Header({ account, onConnect } : HeaderProps) {
                                     <span className="badge">New</span>
                                 </a>
                             </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
+                            <li><div onClick={disConnect}>Logout</div></li>
                         </ul>
                     </div>
                 </div>

@@ -40,9 +40,6 @@ export default function ItemList() {
         <div className="bg-white">
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                 <h2 className="sr-only">Products</h2>
-
-                {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                <button className="btn" onClick={()=>(document.getElementById('my_modal_4') as HTMLDialogElement).showModal()}>open modal</button>
                 <dialog id="my_modal_4" className="modal">
                     <div className="modal-box w-11/12 max-w-5xl">
                         <h3 className="font-bold text-lg">Hello!</h3>
